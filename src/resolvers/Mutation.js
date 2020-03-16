@@ -64,10 +64,10 @@ const Mutation = {
       }
     }
 
-    return await context.prisma.mutation.createConversation({ data }, info)
+    return context.prisma.mutation.createConversation({ data }, info)
   },
   async sendTextMessage ({ userId }, { conversationId, text }, context, info) {
-    return await context.prisma.mutation.createText(
+    return context.prisma.mutation.createText(
       {
         data: {
           text,

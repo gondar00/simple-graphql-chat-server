@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon src/index.js",
-    "playground": "graphql playground"
+    "playground": "graphql playground --port 4001"
   },
   "dependencies": {
     "graphql-yoga": "^1.16.2",
