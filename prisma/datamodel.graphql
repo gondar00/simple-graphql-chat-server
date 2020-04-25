@@ -1,9 +1,17 @@
 type User {
   id: ID! @id @unique
   username: String! @unique
+  name: String!
+  emirateId: String!
+  medicalRecord: String!
+  medicalLicense: String!
+  hospital: String!
+  address: String!
+  mobile: String!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   conversations: [Conversation!]!
+
 }
 
 type Conversation {
