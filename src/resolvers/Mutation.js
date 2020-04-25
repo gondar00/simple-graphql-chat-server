@@ -2,7 +2,16 @@ const jwt = require('jsonwebtoken')
 const APP_SECRET = 'appsecret123'
 
 const Mutation = {
-  async signup (_, { username, ...args }, context, info) {
+  async signup (_, {
+    username,
+    name,
+    emirateId,
+    address,
+    mobile,
+    medicalRecord,
+    medicalLicense,
+    hospital
+  }, context, info) {
     const user = await context.prisma.query.user(
       {
         where: {
@@ -23,7 +32,13 @@ const Mutation = {
       {
         data: {
           username,
-          ...args
+          name,
+          emirateId,
+          address,
+          mobile,
+          medicalRecord,
+          medicalLicense,
+          hospital
         }
       },
       '{ id }'
