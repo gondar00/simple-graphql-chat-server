@@ -8,6 +8,9 @@ const Query = {
   async me ({ userId }, args, context, info) {
     return context.prisma.query.user({ where: { id: userId } }, info)
   },
+  async user (parent, args, context, info) {
+    return context.prisma.query.user({ where: { id: args.id } }, info)
+  },
   async conversations (NULL, args, context, info) {
     return context.prisma.query.conversations(null, info)
   }
