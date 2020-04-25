@@ -2,8 +2,7 @@ const { isLoggedIn } = require('../helpers')
 
 const permissions = {
   Query: {
-    users: isLoggedIn,
-    me: isLoggedIn
+    users: isLoggedIn
   },
   Mutation: {
     createConversation: isLoggedIn,
