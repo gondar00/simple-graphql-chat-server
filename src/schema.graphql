@@ -12,7 +12,16 @@ type Query {
 }
 
 type Mutation {
-  signup(username: String!): AuthPayload!
+  signup(
+    username: String!,
+    name: String,
+    emirateId: String,
+    address: String,
+    mobile: String,
+    medicalRecord: String,
+    medicalLicense: String,
+    hospital: String,
+  ): AuthPayload!
   createConversation(
     name: String
     participantIds: [ID!]!
