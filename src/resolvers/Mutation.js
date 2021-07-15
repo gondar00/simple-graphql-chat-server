@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 const APP_SECRET = 'appsecret123'
 
 const Mutation = {
-  async signup (_, {
+  async signup(_, {
     username,
     name,
     emirateId,
@@ -49,7 +49,7 @@ const Mutation = {
       user: newUser
     }
   },
-  async createConversation (
+  async createConversation(
     { userId },
     { name, participantIds, text },
     context,
@@ -82,7 +82,7 @@ const Mutation = {
 
     return context.prisma.mutation.createConversation({ data }, info)
   },
-  async sendTextMessage ({ userId }, { conversationId, text }, context, info) {
+  async sendTextMessage({ userId }, { conversationId, text }, context, info) {
     return context.prisma.mutation.createText(
       {
         data: {
@@ -102,7 +102,7 @@ const Mutation = {
       info
     )
   },
-  async createAlert (_, { author, text }, context, info) {
+  async createAlert(_, { author, text }, context, info) {
     return context.prisma.mutation.createAlert(
       {
         data: {
@@ -114,6 +114,24 @@ const Mutation = {
           },
         }
       },
+      info
+    )
+  },
+  async createReport(_, { author }, context, info) {
+    const user = await context.prisma.query.user(
+      {
+        where: {
+          id: author
+        }
+      },
+      '{ id, reports }'
+    );
+    return context.prisma.mutation.updateUser({
+      where: { id: author },
+      data: {
+        reports: user.reports + 1
+      }
+    },
       info
     )
   }

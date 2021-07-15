@@ -31,6 +31,7 @@ type Mutation {
   ): Conversation!
   sendTextMessage(conversationId: ID!, text: String!): Text!
   createAlert(author: ID!, text: String!): Text!
+  createReport(author: ID!): Text!
 }
 
 type Subscription {
