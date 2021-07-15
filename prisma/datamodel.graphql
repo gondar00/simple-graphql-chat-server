@@ -31,3 +31,11 @@ type Text {
   author: User!
   conversation: Conversation!
 }
+
+type Alert {
+  id: ID! @id @unique
+  text: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  author: User!
+}

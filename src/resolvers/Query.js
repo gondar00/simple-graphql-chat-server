@@ -13,6 +13,9 @@ const Query = {
   },
   async conversations (NULL, args, context, info) {
     return context.prisma.query.conversations(null, info)
+  },
+  async alerts (NULL, args, context, info) {
+    return context.prisma.query.alerts(null, info)
   }
 }
 

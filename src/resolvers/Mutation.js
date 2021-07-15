@@ -101,6 +101,21 @@ const Mutation = {
       },
       info
     )
+  },
+  async createAlert (_, { author, text }, context, info) {
+    return context.prisma.mutation.createAlert(
+      {
+        data: {
+          text,
+          author: {
+            connect: {
+              id: author
+            }
+          },
+        }
+      },
+      info
+    )
   }
 }
 

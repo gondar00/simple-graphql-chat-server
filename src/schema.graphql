@@ -1,6 +1,7 @@
 # import User from './generated/prisma.graphql'
 # import Conversation from './generated/prisma.graphql'
 # import Text from './generated/prisma.graphql'
+# import Alert from './generated/prisma.graphql'
 # import UserSubscriptionPayload from './generated/prisma.graphql'
 # import TextSubscriptionPayload from './generated/prisma.graphql'
 
@@ -8,6 +9,7 @@ type Query {
   users: [User!]!
   me: User
   conversations: [Conversation],
+  alerts: [Alert],
   user(id: ID!): User
 }
 
@@ -28,6 +30,7 @@ type Mutation {
     text: String
   ): Conversation!
   sendTextMessage(conversationId: ID!, text: String!): Text!
+  createAlert(author: ID!, text: String!): Text!
 }
 
 type Subscription {
