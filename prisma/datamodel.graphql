@@ -11,7 +11,7 @@ type User {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   conversations: [Conversation!]!
-
+  reports: Int
 }
 
 type Conversation {
